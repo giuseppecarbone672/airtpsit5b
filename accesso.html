@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Accesso - Croce Rossa Italiana</title>
+    <link rel="stylesheet" href="./css/accesso.css">
+</head>
+<body style="background: url('img/sfondo.png') no-repeat center center fixed; background-size: cover;">
+
+<div class="overlay"></div>
+
+<div class="login-container">
+    <img src="img/logo.png" alt="Logo Air-TPSIT" class="logo">
+    <h1>AREA RISERVATA</h1>
+
+    <form action="controllo.php" method="POST">
+        <label>Utente</label>
+        <input type="text" name="utente" required>
+
+        <label>Password</label>
+        <input type="password" name="pass" required>
+
+        <input type="submit" value="Accedi" class="btn">
+    </form>
+
+    <a href="registra.php" class="register-btn">Registrati</a>
+</div>
+
+</body>
+</html>
