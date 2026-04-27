@@ -1,0 +1,187 @@
+/* ============================
+   STILE GENERALE PAGINA
+============================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #333; /* Sfondo di base */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(0px);
+    z-index: 1;
+}
+
+/* ============================
+   CONTENITORE LOGIN E ANIMAZIONE
+============================ */
+.login-container {
+    width: 420px; 
+    padding: 50px 40px 40px 40px; 
+    
+    /* MODIFICA QUESTE DUE RIGHE PER LA TRASPARENZA EFFETTO VETRO */
+    background-color: rgba(144, 144, 144, 0.4); /* Grigio al 40% di opacità */
+    backdrop-filter: blur(3px); /* Sfoca lo sfondo dietro al box */
+    
+    border-radius: 20px;
+    /* Puoi rendere l'ombra un po' più morbida se usi il vetro */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 2;
+    
+    opacity: 0;
+    animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ============================
+   LOGO E TITOLO
+============================ */
+.logo {
+    width: 300px;
+    margin-top: -70px;    /* Più spazio sopra */
+    margin-bottom: -15px; /* Meno sovrapposizione col titolo */
+    display: block;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 35px; /* Più distanza dal primo campo */
+    font-size: 28px; 
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+/* ============================
+   FORM E CAMPI DI INPUT
+============================ */
+.form-group {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 25px; /* Molto più respiro tra utente e password */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px; /* Più distanza tra la scritta e il box bianco */
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 16px; /* Input più alti e "cliccabili" */
+    border-radius: 10px; /* Bordi leggermente più morbidi */
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Transizione morbida su tutte le modifiche */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Leggerissima ombra di base */
+}
+
+/* Dinamica al click (Focus) */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    background: #ffffff;
+    transform: translateY(-2px); /* Il campo si solleva verso l'utente */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1), 0 0 0 2px #114190; /* Effetto glow */
+}
+
+/* ============================
+   BOTTONE ACCEDI E LINK
+============================ */
+.btn {
+    width: 100%;
+    padding: 15px; /* Bottone più grande e importante */
+    background: #FDD40A; 
+    border: none;
+    border-radius: 10px;
+    color: #333; /* Testo scuro sul giallo legge meglio, ma puoi rimettere white se preferisci */
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase; /* Rende il bottone più incisivo */
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Ombra fissa */
+}
+
+/* Dinamica al passaggio del mouse (Hover) */
+.btn:hover {
+    transform: translateY(-3px) scale(1.02); /* Si alza e si ingrandisce */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* L'ombra si espande */
+    background: #ffdb33; /* Si schiarisce leggermente */
+}
+
+.btn:active {
+    transform: translateY(1px); /* Effetto "pressione" del tasto fisico */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.register-btn {
+    display: inline-block;
+    margin-top: 30px; /* Ben staccato dal form */
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.register-btn:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 450px) {
+    .login-container {
+        width: 90%;
+        padding: 40px 25px 30px 25px;
+    }
+}
