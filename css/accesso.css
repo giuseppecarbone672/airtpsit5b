@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: #333; /* Sfondo di base */
+    background-color: #333;
 }
 
 .overlay {
@@ -21,167 +21,133 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(0px);
     z-index: 1;
 }
 
 /* ============================
-   CONTENITORE LOGIN E ANIMAZIONE
+   CONTENITORE LOGIN
 ============================ */
 .login-container {
     width: 420px; 
     padding: 50px 40px 40px 40px; 
-    
-    /* MODIFICA QUESTE DUE RIGHE PER LA TRASPARENZA EFFETTO VETRO */
-    background-color: rgba(144, 144, 144, 0.4); /* Grigio al 40% di opacità */
-    backdrop-filter: blur(3px); /* Sfoca lo sfondo dietro al box */
-    
+    background-color: rgba(144, 144, 144, 0.4); 
+    backdrop-filter: blur(5px);
     border-radius: 20px;
-    /* Puoi rendere l'ombra un po' più morbida se usi il vetro */
     box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
-    
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
     z-index: 2;
-    
+    box-sizing: border-box;
     opacity: 0;
     animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes slideUpFade {
-    0% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ============================
-   LOGO E TITOLO
-============================ */
 .logo {
-    width: 300px;
-    margin-top: -70px;    /* Più spazio sopra */
-    margin-bottom: -15px; /* Meno sovrapposizione col titolo */
-    display: block;
+    width: 250px;
+    margin-top: -60px;
+    margin-bottom: 10px;
 }
 
 h1 {
-    margin-top: 20px;
-    margin-bottom: 35px; /* Più distanza dal primo campo */
-    font-size: 28px; 
-    font-weight: 600;
+    font-size: 26px;
     letter-spacing: 2px;
-    color: #ffffff;
+    margin-bottom: 30px;
 }
 
 /* ============================
-   FORM E CAMPI DI INPUT
+   FORM
 ============================ */
 .form-group {
-    width: 100%;
     text-align: left;
-    margin-bottom: 25px; /* Molto più respiro tra utente e password */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 8px; /* Più distanza tra la scritta e il box bianco */
+    margin-bottom: 8px;
     font-weight: 600;
-    font-size: 15px;
-    color: #ffffff;
-    letter-spacing: 0.5px;
 }
 
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 14px 16px; /* Input più alti e "cliccabili" */
-    border-radius: 10px; /* Bordi leggermente più morbidi */
+    padding: 12px 15px;
+    border-radius: 10px;
     border: none;
-    outline: none;
     font-size: 16px;
     background: rgba(255, 255, 255, 0.9);
-    color: #333;
     box-sizing: border-box;
-    transition: all 0.3s ease; /* Transizione morbida su tutte le modifiche */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Leggerissima ombra di base */
+    transition: 0.3s;
 }
 
-/* Dinamica al click (Focus) */
 input[type="text"]:focus,
 input[type="password"]:focus {
-    background: #ffffff;
-    transform: translateY(-2px); /* Il campo si solleva verso l'utente */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1), 0 0 0 2px #114190; /* Effetto glow */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    outline: none;
 }
 
 /* ============================
-   BOTTONE ACCEDI E LINK
+   BOTTONI
 ============================ */
 .btn {
     width: 100%;
-    padding: 15px; /* Bottone più grande e importante */
+    padding: 15px;
     background: #FDD40A; 
     border: none;
     border-radius: 10px;
-    color: #333; /* Testo scuro sul giallo legge meglio, ma puoi rimettere white se preferisci */
+    color: #333;
     font-size: 17px;
     font-weight: 700;
-    text-transform: uppercase; /* Rende il bottone più incisivo */
-    letter-spacing: 1px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 15px;
-    box-sizing: border-box;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Ombra fissa */
+    transition: 0.3s;
+    margin-bottom: 20px;
 }
 
-/* Dinamica al passaggio del mouse (Hover) */
 .btn:hover {
-    transform: translateY(-3px) scale(1.02); /* Si alza e si ingrandisce */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* L'ombra si espande */
-    background: #ffdb33; /* Si schiarisce leggermente */
+    background: #ffdb33;
+    transform: scale(1.02);
 }
 
-.btn:active {
-    transform: translateY(1px); /* Effetto "pressione" del tasto fisico */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
+/* Link Registrati */
 .register-btn {
-    display: inline-block;
-    margin-top: 30px; /* Ben staccato dal form */
+    display: block;
     color: #ffffff;
-    font-weight: 500;
     text-decoration: none;
-    font-size: 0.95em;
-    transition: all 0.3s ease;
-    opacity: 0.9;
+    font-size: 15px;
+    margin-bottom: 15px;
+    opacity: 0.8;
 }
 
 .register-btn:hover {
-    color: #ffffff;
     text-decoration: underline;
     opacity: 1;
-    transform: translateY(-1px);
 }
 
-/* ============================
-   RESPONSIVE
-============================ */
+/* NUOVO TASTO HOME (Elegante con bordo) */
+.home-link {
+    display: block;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.home-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
 @media (max-width: 450px) {
-    .login-container {
-        width: 90%;
-        padding: 40px 25px 30px 25px;
-    }
+    .login-container { width: 90%; }
 }
