@@ -10,20 +10,44 @@
   <main class="container">
     <section class="card">
       <h1>Crea un volo</h1>
-      <p class="subtitle">Inserisci i dettagli del volo.</p>
+      <p class="subtitle">Inserisci i campi della tabella volo.</p>
 
       <form action="crea_volo.php" method="post" class="flight-form">
-        <label for="origine">Origine</label>
-        <input id="origine" type="text" name="origine" required>
+        <label for="codice">Codice volo</label>
+        <input id="codice" type="text" name="codice" maxlength="20" required>
 
-        <label for="destinazione">Destinazione</label>
-        <input id="destinazione" type="text" name="destinazione" required>
+        <label for="data_partenza">Data partenza</label>
+        <input id="data_partenza" type="date" name="data_partenza" required>
 
-        <label for="data">Data</label>
-        <input id="data" type="date" name="data" required>
+        <label for="data_arrivo">Data arrivo</label>
+        <input id="data_arrivo" type="date" name="data_arrivo" required>
 
-        <label for="prezzo">Prezzo (&euro;)</label>
-        <input id="prezzo" type="number" name="prezzo" step="0.01" min="0" required>
+        <label for="aereo_id">Aereo ID</label>
+        <input id="aereo_id" type="number" name="aereo_id" min="1" required>
+
+        <label for="aeroporto_partenza">Aeroporto partenza (codice)</label>
+        <input id="aeroporto_partenza" type="text" name="aeroporto_partenza" maxlength="10" placeholder="es. FCO" required>
+
+        <label for="aeroporto_arrivo">Aeroporto arrivo (codice)</label>
+        <input id="aeroporto_arrivo" type="text" name="aeroporto_arrivo" maxlength="10" placeholder="es. IST" required>
+
+        <label for="ora_partenza">Ora partenza</label>
+        <input id="ora_partenza" type="time" name="ora_partenza" required>
+
+        <label for="ora_arrivo">Ora arrivo</label>
+        <input id="ora_arrivo" type="time" name="ora_arrivo" required>
+
+        <label for="posti_business">Posti business</label>
+        <input id="posti_business" type="number" name="posti_business" min="0" required>
+
+        <label for="posti_economy">Posti economy</label>
+        <input id="posti_economy" type="number" name="posti_economy" min="0" required>
+
+        <label for="posti_first">Posti first</label>
+        <input id="posti_first" type="number" name="posti_first" min="0" required>
+
+        <label for="posti_premium">Posti premium</label>
+        <input id="posti_premium" type="number" name="posti_premium" min="0" required>
 
         <button type="submit">Crea volo</button>
       </form>
@@ -31,4 +55,3 @@
   </main>
 </body>
 </html>
-
