@@ -113,6 +113,27 @@ INSERT INTO `compagnia_aerea` (`codice`, `nome`, `immagine`, `capitale_sociale`)
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `gate`
+--
+
+CREATE TABLE `gate` (
+  `id` int(11) NOT NULL,
+  `codice_gate` varchar(10) NOT NULL,
+  `terminal` varchar(10) NOT NULL,
+  `volo_codice` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dump dei dati per la tabella `gate`
+--
+
+INSERT INTO `gate` (`id`, `codice_gate`, `terminal`, `volo_codice`) VALUES
+(1, 'A12', 'T1', 'AK101'),
+(2, 'B07', 'T2', 'VK101');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `componente_prenotazione`
 --
 
@@ -285,6 +306,13 @@ ALTER TABLE `compagnia_aerea`
   ADD UNIQUE KEY `nome` (`nome`);
 
 --
+-- Indici per le tabelle `gate`
+--
+ALTER TABLE `gate`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `volo_codice` (`volo_codice`);
+
+--
 -- Indici per le tabelle `componente_prenotazione`
 --
 ALTER TABLE `componente_prenotazione`
@@ -359,6 +387,12 @@ ALTER TABLE `cliente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT per la tabella `gate`
+--
+ALTER TABLE `gate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT per la tabella `componente_prenotazione`
 --
 ALTER TABLE `componente_prenotazione`
@@ -415,6 +449,12 @@ ALTER TABLE `componente_prenotazione`
 --
 ALTER TABLE `pagamento`
   ADD CONSTRAINT `pagamento_ibfk_1` FOREIGN KEY (`prenotazione_id`) REFERENCES `prenotazione` (`id`) ON DELETE CASCADE;
+
+--
+-- Limiti per la tabella `gate`
+--
+ALTER TABLE `gate`
+  ADD CONSTRAINT `gate_ibfk_1` FOREIGN KEY (`volo_codice`) REFERENCES `volo` (`codice`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `prenotazione`
