@@ -2,25 +2,33 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crea Volo</title>
+  <link rel="stylesheet" href="./css/crea_volo.css">
 </head>
 <body>
-  <h1>Crea un volo</h1>
+  <main class="container">
+    <section class="card">
+      <h1>Crea un volo</h1>
+      <p class="subtitle">Inserisci i dettagli del volo.</p>
 
-  <form action="crea_volo.php" method="post">
-    <label>Origine:</label><br>
-    <input type="text" name="origine" required><br><br>
+      <form action="crea_volo.php" method="post" class="flight-form">
+        <label for="origine">Origine</label>
+        <input id="origine" type="text" name="origine" required>
 
-    <label>Destinazione:</label><br>
-    <input type="text" name="destinazione" required><br><br>
+        <label for="destinazione">Destinazione</label>
+        <input id="destinazione" type="text" name="destinazione" required>
 
-    <label>Data:</label><br>
-    <input type="date" name="data" required><br><br>
+        <label for="data">Data</label>
+        <input id="data" type="date" name="data" required>
 
-    <label>Prezzo (€):</label><br>
-    <input type="number" name="prezzo" step="0.01" min="0" required><br><br>
+        <label for="prezzo">Prezzo (&euro;)</label>
+        <input id="prezzo" type="number" name="prezzo" step="0.01" min="0" required>
 
-    <button type="submit">Crea volo</button>
-  </form>
+        <button type="submit">Crea volo</button>
+      </form>
+    </section>
+  </main>
 </body>
 </html>
+
