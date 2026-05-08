@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Crea Volo</title>
+</head>
+<body>
+  <h1>Crea un volo</h1>
+
+  <form action="crea_volo.php" method="post">
+    <label>Origine:</label><br>
+    <input type="text" name="origine" required><br><br>
+
+    <label>Destinazione:</label><br>
+    <input type="text" name="destinazione" required><br><br>
+
+    <label>Data:</label><br>
+    <input type="date" name="data" required><br><br>
+
+    <label>Prezzo (€):</label><br>
+    <input type="number" name="prezzo" step="0.01" min="0" required><br><br>
+
+    <button type="submit">Crea volo</button>
+  </form>
+</body>
+</html>

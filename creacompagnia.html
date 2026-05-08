@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creazione Compagnia Aerea</title>
+    <link rel="stylesheet" href="creacompagnia.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Nuova Compagnia Aerea</h2>
+    <form action="creacompagnia.php" method="POST" enctype="multipart/form-data">
+        
+        <div class="form-group">
+            <label for="codice">Codice (IATA/ICAO)</label>
+            <input type="text" id="codice" name="codice" placeholder="Es. AZ o AZA" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nome">Nome Compagnia</label>
+            <input type="text" id="nome" name="nome" placeholder="Es. Alitalia" required>
+        </div>
+
+        <div class="form-group">
+            <label for="immagine">Logo Compagnia</label>
+            <input type="file" id="immagine" name="immagine" accept="image/*" required>
+        </div>
+
+        <div class="form-group">
+            <label for="capitale">Capitale Sociale (€)</label>
+            <input type="number" id="capitale" name="capitale" step="0.01" placeholder="Es. 500000.00" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Crea Compagnia</button>
+    </form>
+</div>
+
+</body>
+</html>
