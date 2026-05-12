@@ -18,11 +18,17 @@
 
 <p class="alert">Tutti i campi sono obbligatori*</p>
 
+<label>Username</label>
+<input type="text" name="username" maxlength="50" required>
+
 <label>Nome</label>
 <input type="text" name="nome" maxlength="50" required>
 
 <label>Cognome</label>
 <input type="text" name="cognome" maxlength="50" required>
+
+<label class="password-label">Password</label>
+<input type="password" name="pass" maxlength="50" required>
 
 <label>Codice Fiscale</label>
 <input type="text" name="codice_fiscale" maxlength="16" required>
@@ -56,14 +62,16 @@
 
 if(isset($_POST['submit'])){
 
-if($_POST['nome']!=NULL && $_POST['cognome']!=NULL && $_POST['codice_fiscale']!=NULL &&
+if($_POST['username']!=NULL && $_POST['nome']!=NULL && $_POST['cognome']!=NULL && $_POST['pass']!=NULL && $_POST['codice_fiscale']!=NULL &&
    $_POST['data']!=NULL && $_POST['telefono']!=NULL && $_POST['email']!=NULL && $_POST['ruolo_id']!=NULL){
 
 $db=mysqli_connect("localhost","root","","airtpsit")
 or die ("impossibile connettersi al database".mysqli_connect_error());
 
+$utente=$_POST['utente'];
 $nome=$_POST['nome'];
 $cognome=$_POST['cognome'];
+$pass=$_POST['pass'];
 $codice_fiscale=$_POST['codice_fiscale'];
 $data=$_POST['data'];
 $telefono=$_POST['telefono'];
@@ -71,8 +79,8 @@ $email=$_POST['email'];
 $ruolo_id=$_POST['ruolo_id'];
 
 $comando = "INSERT INTO utente
-(nome, cognome, codice_fiscale, data_nascita, email, telefono, ruolo_id) 
-VALUES ('$nome', '$cognome', '$codice_fiscale', '$data', '$email', '$telefono', '$ruolo_id')";
+(utente, nome, cognome, password, codice_fiscale, data_nascita, email, telefono, ruolo_id) 
+VALUES ('$username', '$nome', '$cognome', '$pass', '$codice_fiscale', '$data', '$email', '$telefono', '$ruolo_id')";
 
 if(mysqli_query($db,$comando)){
 

@@ -68,6 +68,12 @@ label{
     color:#000000;
 }
 
+/* PASSWORD LABEL CON ICONA */
+.password-label::before{
+
+    margin-right:5px;
+}
+
 /* INPUT */
 input, select{
     width:100%;
