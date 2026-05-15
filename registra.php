@@ -108,5 +108,7 @@ echo "<p style='text-align:center;color:red;'>Compila tutti i campi</p>";
 }
 ?>
 
+<br><a href="homepage.html">Torna alla Homepage</a>
+
 </body>
 </html>

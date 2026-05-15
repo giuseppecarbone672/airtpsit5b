@@ -30,7 +30,7 @@
 
     <div class="navigation-links">
         <a href="registra.php" class="register-btn">Registrati</a>
-        <a href="index.php" class="home-link">Torna alla Homepage</a>
+        <a href="homepage.html" class="home-link">Torna alla Homepage</a>
     </div>
 </div>
 

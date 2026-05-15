@@ -1,0 +1,164 @@
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+body{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+background: rgba(0,0,0,0.35);
+backdrop-filter: blur(8px);
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+}
+
+/* LOGO + TITOLO */
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.logo-title h1 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 40px;
+  }
+  
+  .logo-title h1 {
+    font-size: 18px;
+  }
+}
+
+/* BOTTONE ACCESSO */
+
+.btn-access{
+text-decoration:none;
+color:white;
+padding:10px 22px;
+border-radius:30px;
+background: linear-gradient(45deg,#00c6ff,#0072ff);
+transition: all 0.3s ease;
+font-weight:500;
+}
+
+.btn-access:hover{
+transform:scale(1.08);
+box-shadow:0 0 12px rgba(0,198,255,0.7);
+}
+
+/* HEADER */
+
+header{
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+animation:fadeIn 1.2s ease;
+position:relative;
+}
+
+header h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+header p{
+font-size:18px;
+max-width:600px;
+opacity:0.9;
+}
+
+/* EFFETTO LUCE */
+
+header::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background: radial-gradient(circle,#00c6ff55,transparent);
+filter:blur(80px);
+z-index:-1;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background: rgba(0,0,0,0.35);
+border-top:1px solid rgba(255,255,255,0.1);
+font-size:14px;
+}
+
+/* ANIMAZIONE */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.nav-container{
+flex-direction:column;
+gap:10px;
+}
+
+.logo{
+max-width:40px;
+height:auto;
+}
+
+header h1{
+font-size:30px;
+}
+
+}
