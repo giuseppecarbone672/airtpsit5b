@@ -1,0 +1,126 @@
+/* ============================
+   STILE GENERALE PAGINA ERRORE
+============================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+
+/* ============================
+   CONTENITORE MESSAGGIO
+============================ */
+.messaggio-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================
+   BOX ERRORE
+============================ */
+.messaggio-errore {
+    width: 420px;
+    padding: 45px 40px;
+    background-color: rgba(144, 144, 144, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ============================
+   TESTI
+============================ */
+.messaggio-errore h2 {
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.messaggio-errore p {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* ============================
+   BOTTONI
+============================ */
+.bottoni-messaggio {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-registrati,
+.btn-indietro {
+    display: block;
+    padding: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+/* Bottone principale */
+.btn-registrati {
+    background: #FDD40A;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.btn-registrati:hover {
+    background: #ffdb33;
+    transform: scale(1.02);
+}
+
+/* Bottone secondario */
+.btn-indietro {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-indietro:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 450px) {
+    .messaggio-errore {
+        width: 90%;
+        padding: 40px 25px;
+    }
+
+    .messaggio-errore h2 {
+        font-size: 22px;
+    }
+}

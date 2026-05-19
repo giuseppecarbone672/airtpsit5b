@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mar 11, 2026 alle 09:04
--- Versione del server: 10.4.28-MariaDB
--- Versione PHP: 8.2.4
+-- Creato il: Mag 12, 2026 alle 10:28
+-- Versione del server: 10.4.32-MariaDB
+-- Versione PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -128,6 +128,27 @@ CREATE TABLE `componente_prenotazione` (
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `gate`
+--
+
+CREATE TABLE `gate` (
+  `id` int(11) NOT NULL,
+  `codice_gate` varchar(10) NOT NULL,
+  `terminal` varchar(10) NOT NULL,
+  `volo_codice` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dump dei dati per la tabella `gate`
+--
+
+INSERT INTO `gate` (`id`, `codice_gate`, `terminal`, `volo_codice`) VALUES
+(1, 'A12', 'T1', 'AK101'),
+(2, 'B07', 'T2', 'VK101');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `pagamento`
 --
 
@@ -201,6 +222,7 @@ CREATE TABLE `utente` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `cognome` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `codice_fiscale` varchar(16) NOT NULL,
   `data_nascita` date NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -212,10 +234,11 @@ CREATE TABLE `utente` (
 -- Dump dei dati per la tabella `utente`
 --
 
-INSERT INTO `utente` (`id`, `nome`, `cognome`, `codice_fiscale`, `data_nascita`, `email`, `telefono`, `ruolo_id`) VALUES
-(1, 'Mario', 'Brega', 'CRBGPP83M07A783F', '2006-03-17', 'mario@mario.it', '0824832742', 1),
-(2, 'Mario', 'Lucci', 'CRCGPP83M07A783F', '2006-03-17', 'mario@lucci.it', '0824832742', 2),
-(4, 'Luca', 'Benno', 'CBBGPP83M07A783F', '2001-03-17', 'luca@benno.it', '0824832742', 3);
+INSERT INTO `utente` (`id`, `nome`, `cognome`, `password`, `codice_fiscale`, `data_nascita`, `email`, `telefono`, `ruolo_id`) VALUES
+(1, 'Mario', 'Brega', '', 'CRBGPP83M07A783F', '2006-03-17', 'mario@mario.it', '0824832742', 1),
+(2, 'Mario', 'Lucci', '', 'CRCGPP83M07A783F', '2006-03-17', 'mario@lucci.it', '0824832742', 2),
+(4, 'Luca', 'Benno', '', 'CBBGPP83M07A783F', '2001-03-17', 'luca@benno.it', '0824832742', 3),
+(5, 'Jack', 'Gilligan', '', 'IW4TR43JSEO49', '2000-11-16', 'jackgilligan@gmail.com', '39832943839', 2);
 
 -- --------------------------------------------------------
 
@@ -294,6 +317,13 @@ ALTER TABLE `componente_prenotazione`
   ADD KEY `prenotazione_id` (`prenotazione_id`);
 
 --
+-- Indici per le tabelle `gate`
+--
+ALTER TABLE `gate`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `volo_codice` (`volo_codice`);
+
+--
 -- Indici per le tabelle `pagamento`
 --
 ALTER TABLE `pagamento`
@@ -365,6 +395,12 @@ ALTER TABLE `componente_prenotazione`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT per la tabella `gate`
+--
+ALTER TABLE `gate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT per la tabella `pagamento`
 --
 ALTER TABLE `pagamento`
@@ -392,7 +428,7 @@ ALTER TABLE `scalo`
 -- AUTO_INCREMENT per la tabella `utente`
 --
 ALTER TABLE `utente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Limiti per le tabelle scaricate
@@ -409,6 +445,12 @@ ALTER TABLE `aereo`
 --
 ALTER TABLE `componente_prenotazione`
   ADD CONSTRAINT `componente_prenotazione_ibfk_1` FOREIGN KEY (`prenotazione_id`) REFERENCES `prenotazione` (`id`) ON DELETE CASCADE;
+
+--
+-- Limiti per la tabella `gate`
+--
+ALTER TABLE `gate`
+  ADD CONSTRAINT `gate_ibfk_1` FOREIGN KEY (`volo_codice`) REFERENCES `volo` (`codice`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `pagamento`

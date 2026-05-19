@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cerca passeggeri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Ricerca passeggeri nei voli</h2>
+
+  <div class="box">
+    <form method="get" action="cercapasseggeri.php">
+      <div>
+        <label for="volo">Volo (codice)</label>
+        <input id="volo" name="volo" placeholder="es. AK101">
+      </div>
+
+      <div>
+        <label for="cognome">Cognome</label>
+        <input id="cognome" name="cognome" placeholder="es. Rossi">
+      </div>
+
+      <div>
+        <label for="documento">N. documento</label>
+        <input id="documento" name="documento" placeholder="es. AB123456">
+      </div>
+
+      <div style="margin-top:10px;">
+        <button type="submit">Cerca</button>
+        <a href="cercapasseggeri.html" style="margin-left:10px;">Reset</a>
+      </div>
+    </form>
+  </div>
+
+  <br><a href="homepage.html">Torna alla Homepage</a>
+</body>
+</html>

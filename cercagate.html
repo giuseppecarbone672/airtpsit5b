@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ricerca Gate</title>
+    <link rel="stylesheet" href="./css_cercagate/cercagate.css">
+</head>
+<body>
+
+<main class="page-shell">
+    <section class="card">
+        <p class="eyebrow">Aeroporto</p>
+        <h2>Ricerca Gate</h2>
+        <p class="intro">Inserisci compagnia, numero volo e orario di partenza per cercare il volo.</p>
+
+        <form action="cercagate.php" method="POST" class="search-form">
+            <label for="compagnia">Compagnia</label>
+            <input type="text" id="compagnia" name="compagnia" placeholder="Compagnia" required>
+
+            <label for="nvolo">Numero Volo</label>
+            <input type="number" id="nvolo" name="nvolo" placeholder="Numero Volo" required>
+
+            <label for="orario">Orario</label>
+            <input type="time" id="orario" name="orario" required>
+
+            <input type="submit" value="Cerca" class="button">
+        </form>
+    </section>
+</main>
+
+<a href="homepage.html">Torna alla Homepage</a>
+
+</body>
+</html>
